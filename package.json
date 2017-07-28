@@ -1,0 +1,22 @@
+{
+  "name": "vuetify2",
+  "version": "1.0.0",
+  "description": "Nuxt.js + Vuetify.js project",
+  "author": "Nick Gates <nick@savvycard.com>",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "deploy": "aws s3 sync dist/ s3://quasar-demo-2417",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^1.0.0-rc3",
+    "vue-server-renderer": "latest",
+    "vuetify": "^0.13.0"
+  },
+  "devDependencies": {
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1"
+  }
+}
