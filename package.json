@@ -11,7 +11,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "auth0-lock": "^10.19.0",
+    "js-cookie": "^2.1.4",
+    "jwt-decode": "^2.2.0",
     "nuxt": "^1.0.0-rc3",
+    "uuid": "^3.1.0",
     "vue-server-renderer": "latest",
     "vuetify": "^0.13.0"
   },

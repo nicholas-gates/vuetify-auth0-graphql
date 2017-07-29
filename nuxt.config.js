@@ -1,4 +1,7 @@
 module.exports = {
+  router: {
+    middleware: 'check-auth'
+  },
   /*
   ** Headers of the page
   */
@@ -27,5 +30,12 @@ module.exports = {
   plugins: ['~plugins/vuetify.js'],
   css: [
     { src: '~assets/style/app.styl', lang: 'styl' }
-  ]
+  ],
+  /*
+  ** Environement variables
+  */
+  env: {
+    AUTH0_CLIENT_ID: '',
+    AUTH0_CLIENT_DOMAIN: ''
+  }
 }
