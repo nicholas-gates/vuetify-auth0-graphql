@@ -11,11 +11,14 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "apollo-client": "^1.9.0-1",
     "auth0-lock": "^10.19.0",
+    "graphql-tag": "^2.4.2",
     "js-cookie": "^2.1.4",
     "jwt-decode": "^2.2.0",
     "nuxt": "^1.0.0-rc3",
     "uuid": "^3.1.0",
+    "vue-apollo": "^2.1.0-beta.19",
     "vue-server-renderer": "latest",
     "vuetify": "^0.13.0"
   },

@@ -1,4 +1,7 @@
+const { resolve } = require('path')
+
 module.exports = {
+  srcDir: resolve('./src'),
   router: {
     middleware: 'check-auth'
   },
@@ -6,7 +9,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: 'Demo App',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -25,9 +28,20 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['vuetify']
+    vendor: [
+      'vuetify',
+      'apollo-client',
+      'vue-apollo'
+    ]
   },
-  plugins: ['~plugins/vuetify.js'],
+  plugins: [
+    '~plugins/vuetify.js',
+    {
+      src: '~plugins/apollo.js',
+      injectAs: 'apolloProvider',
+      ssr: false
+    },
+  ],
   css: [
     { src: '~assets/style/app.styl', lang: 'styl' }
   ],
