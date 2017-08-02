@@ -36,6 +36,7 @@ module.exports = {
   },
   plugins: [
     '~plugins/vuetify.js',
+    '~plugins/charts.js',
     {
       src: '~plugins/apollo.js',
       injectAs: 'apolloProvider',

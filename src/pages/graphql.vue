@@ -45,8 +45,8 @@ export default {
     allPosts: [],
     loading: 0,
   }),
-   asyncData (context) {
-    debugger
+  asyncData(context) {
+    // debugger
     return { project: 'nuxt' }
   },
   // Apollo GraphQL

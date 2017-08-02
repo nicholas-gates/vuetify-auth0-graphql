@@ -61,7 +61,8 @@ export default {
         { icon: 'apps', title: 'Welcome', to: '/' },
         { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' },
         { icon: 'account_box', title: 'Login', to: '/login' },
-        { icon: 'graphic_eq', title: 'GraphQL Demo', to: '/graphql' }
+        { icon: 'graphic_eq', title: 'GraphQL Demo', to: '/graphql' },
+        { icon: 'insert_chart', title: 'Charts', to: '/charts' }
       ],
       miniVariant: false,
       right: true,
