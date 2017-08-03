@@ -1,33 +1,14 @@
 <template>
   <v-layout column justify-center align-center>
-
+  
     <template v-if="loading > 0">
       Loading
     </template>
     <!-- Actual view -->
     <template v-else>
-
-      <!-- <ul>
-        <!-- Post list items -->
-        <!-- <li v-for="record in allCompanySaleses" :key="record.id">
-          {{ record.year }} ; link: {{ record.sales }}
-        </li>
-      </ul>  -->
-
       <vue-chart :columns="columns" :rows="rows" :options="options"></vue-chart>
-
     </template>
-
-    <!-- <template v-if="loading > 0">
-              Loading
-            </template>
-            <!-- Actual view -->
-    <!-- <templ ate v-else> -->-->
-
-    <!--  -->
-
-    <!-- </template> -->
-
+  
   </v-layout>
 </template>
 
@@ -60,12 +41,12 @@ export default {
       'type': 'number',
       'label': 'Expenses'
     }],
-    allCompanySales: [
-      ['2004', 1000, 400],
-      ['2005', 1170, 460],
-      ['2006', 660, 1120],
-      ['2007', 1030, 540]
-    ],
+    // allCompanySales: [
+    //   ['2004', 1000, 400],
+    //   ['2005', 1170, 460],
+    //   ['2006', 660, 1120],
+    //   ['2007', 1030, 540]
+    // ],
     options: {
       title: 'Company Performance',
       hAxis: {
@@ -96,12 +77,10 @@ export default {
       // -1 when a query is completed
       loadingKey: 'loading',
       update(data) {
-        // debugger
         return data
       },
       // Optional result hook
       result({ data, loader, networkStatus }) {
-        // debugger
         console.log("We got some result!")
 
         // let chartRows = data.allCompanySaleses.map(record => [record.year, record.sales, record.expenses])
