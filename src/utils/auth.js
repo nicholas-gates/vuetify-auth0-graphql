@@ -39,11 +39,17 @@ export const getUserFromCookie = (req) => {
     const jwtCookie = req.headers.cookie.split(';').find(c => c.trim().startsWith('jwt='))
     if (!jwtCookie) return
     const jwt = jwtCookie.split('=')[1]
+
+    // if (jwtDecode(jwt)) console.log('getUserFromCookie: got user from cookie')
+
     return jwtDecode(jwt)
 }
 
 export const getUserFromLocalStorage = () => {
     const json = window.localStorage.getItem('user')
+
+    // if (json ? JSON.parse(json) : undefined) console.log('getUserFromLocalStorage: got user from local storage')
+
     return json ? JSON.parse(json) : undefined
 }
 

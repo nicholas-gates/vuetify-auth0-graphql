@@ -85,6 +85,7 @@ export default {
         ...mapState({
             message: state => state.obj.message
         })
+
     },
     methods: {
         submit: function (event) {
@@ -143,7 +144,7 @@ export default {
             }).then((data) => {
                 debugger
                 // Result
-                console.log(data)
+                // console.log(data)
                 this.$router.replace('/')
             }).catch((error) => {
                 // Error

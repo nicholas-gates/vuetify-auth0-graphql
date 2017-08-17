@@ -30,13 +30,11 @@ export default {
         // this.$store.commit('SET_USER', loggedUser)
         this.$store.commit('SET_USER', getUserFromLocalStorage())
 
-        debugger
         this.$apollo.query({
             query: userQuery
         }).then((data) => {
-            debugger
             // Result
-            console.log(data)
+            // console.log(data)
 
             const route = (data.data.user === null) ? '/auth/createUser' : '/'
 
@@ -48,8 +46,6 @@ export default {
             this.showError = true
             console.error(error)
         })
-
-
     }
 }
 </script>

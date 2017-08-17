@@ -51,19 +51,32 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { getUserFromLocalStorage } from '~/utils/auth'
+
 export default {
+  computed: {
+    ...mapGetters(['isAuthenticated']),
+    items: function () {
+      const accountMenuItem = (this.isAuthenticated)
+        ? { icon: 'account_box', title: 'Account', to: '/login' }
+        : { icon: 'account_box', title: 'Login', to: '/auth/sign-in' };
+
+      return [
+        { icon: 'apps', title: 'Welcome', to: '/' },
+        { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' },
+        accountMenuItem,
+        { icon: 'graphic_eq', title: 'GraphQL Demo', to: '/graphql' },
+        { icon: 'insert_chart', title: 'Charts', to: '/charts' }
+      ]
+    }
+  },
   data() {
+
     return {
       clipped: false,
       drawer: true,
       fixed: false,
-      items: [
-        { icon: 'apps', title: 'Welcome', to: '/' },
-        { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' },
-        { icon: 'account_box', title: 'Login', to: '/login' },
-        { icon: 'graphic_eq', title: 'GraphQL Demo', to: '/graphql' },
-        { icon: 'insert_chart', title: 'Charts', to: '/charts' }
-      ],
       miniVariant: false,
       right: true,
       rightDrawer: false,

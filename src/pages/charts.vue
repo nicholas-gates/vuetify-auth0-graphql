@@ -27,6 +27,7 @@ const allCompanySalesQuery = gql`
 `;
 
 export default {
+  middleware: 'authenticated',
   // Local state
   data: () => ({
     rows: [],
@@ -75,7 +76,7 @@ export default {
       },
       // Optional result hook
       result({ data, loader, networkStatus }) {
-        console.log("We got some result!")
+        // console.log("We got some result!")
 
         // let chartRows = data.allCompanySaleses.map(record => [record.year, record.sales, record.expenses])
         let chartRows = data.allCompanySaleses.map(function (record) {
