@@ -1,61 +1,29 @@
 <template>
-    <v-layout column justify-center align-center>
+    <v-layout column justify-center>
+        <v-flex xs12>
     
-        <v-card class="secondary elevation-0">
-            <v-card-text>
+            <v-card class="secondary elevation-0">
+    
                 <v-container fluid>
     
                     <v-alert error icon="new_releases" v-bind:value="showError">
                         {{submitError}}
                     </v-alert>
     
-                    <v-layout row>
-                        <v-flex xs8>
-                            <v-subheader class="grey--text text--lighten-1">Create User</v-subheader>
-                        </v-flex>
+                    <v-subheader class="grey--text text--lighten-1 primary mb-5">Create User</v-subheader>
     
-                    </v-layout>
+                    <v-text-field disabled name="email" label="Email" :value="loggedUser.email" dark></v-text-field>
     
-                    <v-layout row>
-                        <v-flex xs8>
-                            <v-text-field name="email" label="Email" :value="loggedUser.email" dark></v-text-field>
-                        </v-flex>
+                    <v-text-field disabled name="name" label="Your Name" :value="loggedUser.name" @input="updateName" dark></v-text-field>
     
-                    </v-layout>
+                    <v-checkbox label="Subscribe to Email" v-model="emailSubscription" dark></v-checkbox>
     
-                    <v-layout row>
-    
-                        <v-flex xs8>
-                            <v-text-field name="name" label="Your Name" :value="loggedUser.name" @input="updateName" dark></v-text-field>
-                        </v-flex>
-    
-                    </v-layout>
-    
-                    <v-layout row>
-    
-                        <v-flex xs8>
-    
-                            <v-card-text>
-                                <v-checkbox label="Subscribe to Email" v-model="emailSubscription" dark></v-checkbox>
-                            </v-card-text>
-    
-                        </v-flex>
-    
-                    </v-layout>
-    
-                    <v-layout row>
-    
-                        <v-flex xs4>
-    
-                            <v-btn light v-on:click.native="submit">Submit</v-btn>
-    
-                        </v-flex>
-    
-                    </v-layout>
+                    <v-btn light v-on:click.native="submit">Submit</v-btn>
     
                 </v-container>
-            </v-card-text>
-        </v-card>
+            </v-card>
+    
+        </v-flex>
     
     </v-layout>
 </template>
@@ -74,8 +42,8 @@ const createUser = gql`
 export default {
     // Local state
     data: () => ({
-        email: 'mickey@mouse.com',
-        name: '',
+        // email: 'mickey@mouse.com',
+        // name: '',
         emailSubscription: true,
         submitError: '',
         showError: false,
@@ -122,7 +90,7 @@ export default {
                 // The query will be updated with the optimistic response
                 // and then with the real result of the mutation
                 update: (store, { data: { newTag } }) => {
-                    debugger
+                    // debugger
                     // Read the data from our cache for this query.
                     // const data = store.readQuery({ query: TAGS_QUERY })
                     // // Add our tag from the mutation to the end
@@ -142,7 +110,7 @@ export default {
                 // },
                 // },
             }).then((data) => {
-                debugger
+                // debugger
                 // Result
                 // console.log(data)
                 this.$router.replace('/')
