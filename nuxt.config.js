@@ -31,12 +31,17 @@ module.exports = {
     vendor: [
       'vuetify',
       'apollo-client',
-      'vue-apollo'
+      'vue-apollo',
+      // 'google-charts',
     ]
   },
   plugins: [
     '~plugins/vuetify.js',
     '~plugins/charts.js',
+    {
+      src: '~plugins/googleCharts.js',
+      ssr: false
+    },
     {
       src: '~plugins/apollo.js',
       injectAs: 'apolloProvider',

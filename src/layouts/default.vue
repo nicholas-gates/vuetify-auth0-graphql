@@ -57,7 +57,7 @@ import { getUserFromLocalStorage } from '~/utils/auth'
 export default {
   computed: {
     ...mapGetters(['isAuthenticated']),
-    items: function () {
+    items: function() {
       const accountMenuItem = (this.isAuthenticated)
         ? { icon: 'account_box', title: 'Account', to: '/login' }
         : { icon: 'account_box', title: 'Login', to: '/auth/sign-in' };
@@ -67,7 +67,8 @@ export default {
         { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' },
         accountMenuItem,
         { icon: 'graphic_eq', title: 'GraphQL Demo', to: '/graphql' },
-        { icon: 'insert_chart', title: 'Charts', to: '/charts' }
+        { icon: 'insert_chart', title: 'Charts', to: '/charts' },
+        { icon: 'settings_overscan', title: 'Flex Charts', to: '/responsiveChart' }
       ]
     }
   },

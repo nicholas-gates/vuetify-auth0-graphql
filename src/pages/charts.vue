@@ -1,6 +1,6 @@
 <template>
   <v-layout column justify-center align-center>
-  
+
     <template v-if="loading > 0">
       Loading
     </template>
@@ -8,7 +8,7 @@
     <template v-else>
       <vue-chart :columns="columns" :rows="rows" :options="options"></vue-chart>
     </template>
-  
+
   </v-layout>
 </template>
 
@@ -27,7 +27,7 @@ const allCompanySalesQuery = gql`
 `;
 
 export default {
-  middleware: 'authenticated',
+  // middleware: 'authenticated',
   // Local state
   data: () => ({
     rows: [],
@@ -79,7 +79,7 @@ export default {
         // console.log("We got some result!")
 
         // let chartRows = data.allCompanySaleses.map(record => [record.year, record.sales, record.expenses])
-        let chartRows = data.allCompanySaleses.map(function (record) {
+        let chartRows = data.allCompanySaleses.map(function(record) {
           return [record.year.toString(), record.sales, record.expenses];
         });
         this.rows = chartRows
