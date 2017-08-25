@@ -1,31 +1,31 @@
 <template>
     <div id="chart_div" class="chart">
-        test
     </div>
 </template>
 
 <script>
 
 export default {
+    // middleware: 'authenticated',
     data: () => ({
     }),
     computed: {
     },
     mounted() {
         // debugger
-        console.log('Nothing gets called before me!')
-        const charts = this.$charts;
+
+        // Set a callback to run when the Google Visualization API is loaded.
         this.$charts.load(this.drawChart);
         window.addEventListener('resize', this.drawChart);
     },
     methods: {
-        submit: function (event) {
+        submit: function(event) {
         },
         onResize() {
             this.drawChart();
         },
-        drawChart: function () {
-            // debugger
+        drawChart: function() {
+            debugger
             const charts = this.$charts;
             // Create the data table.
             var data = new charts.api.visualization.DataTable();

@@ -1,7 +1,9 @@
+
 import jwtDecode from 'jwt-decode'
 import Cookie from 'js-cookie'
 
 const getQueryParams = () => {
+    debugger
     const params = {}
     window.location.href.replace(/([^(?|#)=&]+)(=([^&]*))?/g, ($0, $1, $2, $3) => {
         params[$1] = $3
@@ -10,6 +12,7 @@ const getQueryParams = () => {
 }
 
 export const extractInfoFromHash = () => {
+    debugger
     if (process.SERVER_BUILD) return
     const { id_token, state } = getQueryParams()
     return {

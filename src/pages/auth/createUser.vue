@@ -1,30 +1,30 @@
 <template>
     <v-layout column justify-center>
         <v-flex xs12>
-    
+
             <v-card class="secondary elevation-0">
-    
+
                 <v-container fluid>
-    
+
                     <v-alert error icon="new_releases" v-bind:value="showError">
                         {{submitError}}
                     </v-alert>
-    
+
                     <v-subheader class="grey--text text--lighten-1 primary mb-5">Create User</v-subheader>
-    
+
                     <v-text-field disabled name="email" label="Email" :value="loggedUser.email" dark></v-text-field>
-    
+
                     <v-text-field disabled name="name" label="Your Name" :value="loggedUser.name" @input="updateName" dark></v-text-field>
-    
+
                     <v-checkbox label="Subscribe to Email" v-model="emailSubscription" dark></v-checkbox>
-    
+
                     <v-btn light v-on:click.native="submit">Submit</v-btn>
-    
+
                 </v-container>
             </v-card>
-    
+
         </v-flex>
-    
+
     </v-layout>
 </template>
 
@@ -42,8 +42,6 @@ const createUser = gql`
 export default {
     // Local state
     data: () => ({
-        // email: 'mickey@mouse.com',
-        // name: '',
         emailSubscription: true,
         submitError: '',
         showError: false,
@@ -56,7 +54,7 @@ export default {
 
     },
     methods: {
-        submit: function (event) {
+        submit: function(event) {
 
             this.showError = false;
 

@@ -8,20 +8,18 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generatlse": "nuxt generate",
+    "generate": "nuxt generate",
     "deploy": "aws --profile home s3 sync dist/ s3://quasar-demo-2417"
   },
   "dependencies": {
     "apollo-client": "^1.9.0-1",
     "auth0-lock": "^10.19.0",
-    "google-charts": "^0.5.1",
     "graphql-tag": "^2.4.2",
     "js-cookie": "^2.1.4",
     "jwt-decode": "^2.2.0",
     "nuxt": "^1.0.0-rc3",
     "uuid": "^3.1.0",
     "vue-apollo": "^2.1.0-beta.19",
-    "vue-charts": "^0.2.1",
     "vue-server-renderer": "latest",
     "vuetify": "^0.13.0"
   },

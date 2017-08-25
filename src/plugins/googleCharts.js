@@ -1,5 +1,4 @@
 import Vue from 'vue'
-// import { GoogleCharts } from 'google-charts';
 
 const loadScript = Symbol('loadScript');
 
@@ -39,7 +38,6 @@ class googleCharts {
     }
 }
 
-// export let GoogleCharts = new googleCharts();
 let GoogleCharts = new googleCharts();
 
 if (module.hot) {

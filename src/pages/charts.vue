@@ -6,7 +6,7 @@
     </template>
     <!-- Actual view -->
     <template v-else>
-      <vue-chart :columns="columns" :rows="rows" :options="options"></vue-chart>
+      <div id="chart_div" class="chart"></div>
     </template>
 
   </v-layout>
@@ -30,36 +30,46 @@ export default {
   // middleware: 'authenticated',
   // Local state
   data: () => ({
-    rows: [],
     loading: 0,
-    columns: [{
-      'type': 'string',
-      'label': 'Year'
-    }, {
-      'type': 'number',
-      'label': 'Sales'
-    }, {
-      'type': 'number',
-      'label': 'Expenses'
-    }],
-    options: {
-      title: 'Company Performance',
-      hAxis: {
-        title: 'Year',
-        minValue: '2004',
-        maxValue: '2007'
-      },
-      vAxis: {
-        title: '',
-        minValue: 300,
-        maxValue: 1200
-      },
-      width: 900,
-      height: 500,
-      curveType: 'function'
-    },
-
+    rows: [],
   }),
+  mounted() {
+    window.addEventListener('resize', this.drawChart);
+  },
+  methods: {
+
+    drawChart: function() {
+      const charts = this.$charts;
+      // Create the data table.
+      var data = new charts.api.visualization.DataTable();
+      data.addColumn('string', 'Year');
+      data.addColumn('number', 'Sales');
+      data.addColumn('number', 'Expenses');
+
+      data.addRows(this.rows);
+
+      // Set chart options
+      var options = {
+        title: 'Company Performance',
+        hAxis: {
+          title: 'Year',
+          minValue: '2004',
+          maxValue: '2007'
+        },
+        vAxis: {
+          title: '',
+          minValue: 300,
+          maxValue: 1200
+        },
+        height: 500,
+        curveType: 'function'
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new charts.api.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  },
   // Apollo GraphQL
   apollo: {
     // Local state 'posts' data will be updated
@@ -76,17 +86,14 @@ export default {
       },
       // Optional result hook
       result({ data, loader, networkStatus }) {
-        // console.log("We got some result!")
-
-        // let chartRows = data.allCompanySaleses.map(record => [record.year, record.sales, record.expenses])
         let chartRows = data.allCompanySaleses.map(function(record) {
           return [record.year.toString(), record.sales, record.expenses];
         });
         this.rows = chartRows
+        this.$charts.load(this.drawChart);
       },
       // Error handling
       error(error) {
-        debugger
         console.error('We\'ve got an error!', error)
       },
     },
@@ -94,3 +101,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.chart {
+  width: 100%;
+  min-height: 450px;
+}
+</style>

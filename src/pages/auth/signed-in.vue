@@ -1,6 +1,7 @@
 <template>
     <p>
-        Signing in...</p>
+        Signing in...
+    </p>
 </template>
 
 <script>
@@ -17,7 +18,7 @@ const userQuery = gql`
 
 export default {
     mounted() {
-
+        debugger
         const { token, secret } = extractInfoFromHash()
 
         if (!checkSecret(secret) || !token) {
