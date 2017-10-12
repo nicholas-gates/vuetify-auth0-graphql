@@ -5,14 +5,18 @@ import Cookie from 'js-cookie'
 const getQueryParams = () => {
     debugger
     const params = {}
+    //alert('2 getQueryParams window.location.href = ' + window.location.href)
     window.location.href.replace(/([^(?|#)=&]+)(=([^&]*))?/g, ($0, $1, $2, $3) => {
         params[$1] = $3
+        //alert('getQueryParams param = ' + $3)
     })
+    //alert('getQueryParams param.id_token = ' + params.id_token)
     return params
 }
 
 export const extractInfoFromHash = () => {
-    debugger
+    // debugger
+    //alert('extractInfoFromHash SERVER_BUILD=' + process.SERVER_BUILD)
     if (process.SERVER_BUILD) return
     const { id_token, state } = getQueryParams()
     return {
@@ -22,10 +26,12 @@ export const extractInfoFromHash = () => {
 }
 
 export const setToken = (token) => {
+    //alert ("setToken 1: ")
     if (process.SERVER_BUILD) return
     window.localStorage.setItem('token', token)
     window.localStorage.setItem('user', JSON.stringify(jwtDecode(token)))
     Cookie.set('jwt', token)
+    //alert ("setToken 2: ")
 }
 
 export const unsetToken = () => {
@@ -50,6 +56,8 @@ export const getUserFromCookie = (req) => {
 
 export const getUserFromLocalStorage = () => {
     const json = window.localStorage.getItem('user')
+
+    //alert ("json: " + json)
 
     // if (json ? JSON.parse(json) : undefined) console.log('getUserFromLocalStorage: got user from local storage')
 

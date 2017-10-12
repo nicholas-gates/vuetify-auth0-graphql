@@ -4,7 +4,7 @@
 
             <v-card class="secondary elevation-0">
 
-                <v-container fluid>
+                <v-container fluid v-if="loggedUser"i>
 
                     <v-alert error icon="new_releases" v-bind:value="showError">
                         {{submitError}}
