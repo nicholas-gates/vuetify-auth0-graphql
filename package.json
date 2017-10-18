@@ -12,6 +12,7 @@
     "deploy": "aws --profile home s3 sync dist/ s3://quasar-demo-2417"
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^1.0.2",
     "apollo-client": "^1.9.0-1",
     "auth0-lock": "^10.19.0",
     "graphql-tag": "^2.4.2",
